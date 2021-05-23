@@ -27,6 +27,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'My Web Pack',
+            hash: true
         }),
         new BrowserSyncPlugin({
             host: 'localhost',
