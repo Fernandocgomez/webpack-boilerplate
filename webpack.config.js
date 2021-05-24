@@ -1,6 +1,5 @@
 const path = require('path');
 // Plugins
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
@@ -25,15 +24,11 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'My Web Pack',
-            hash: true
-        }),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
-            files: ['./dist/*.html'],
-            server: { baseDir: ['dist'] }
+            files: ['./*.html'],
+            server: { baseDir: ['./'] }
         })
     ],
     output: {
