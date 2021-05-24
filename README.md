@@ -1,8 +1,15 @@
 # Webpack Boilerplate
-This is a webpack with typescript boiler plate based on the webpack docs.
+This is a webpack with typescript, sass and bootstrap boiler plate based on the webpack docs.
 
 # Installation
 Use npm to download the needed node_modules.
+
+# Remove Bootstrap 
+- Remove from the dependencies object.
+    - "@popperjs/core": "^2.9.2",
+    - "bootstrap": "^5.0.1"
+- Remove from ./styles/styles.scss
+    - @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 ```bash 
 npm install

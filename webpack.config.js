@@ -1,12 +1,12 @@
 const path = require('path');
 // Plugins
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: {
-        index: './src/index.ts',
+        main: ['./src/index.ts', './src/styles/styles.scss']
     },
     // devtool: 'inline-source-map',
     devServer: {
@@ -19,25 +19,31 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: { outputPath: '/', name: '[name].css'}
+                    },
+                    'sass-loader'
+                ]
+            }
         ],
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'My Web Pack',
-            hash: true
-        }),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
-            files: ['./dist/*.html'],
-            server: { baseDir: ['dist'] }
-        })
+            files: ['./*.html'],
+            server: { baseDir: ['./'] }
+        }),
     ],
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
