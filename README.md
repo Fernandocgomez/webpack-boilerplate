@@ -4,6 +4,10 @@ This is a webpack with typescript, sass and bootstrap boiler plate based on the 
 # Installation
 Use npm to download the needed node_modules.
 
+```bash 
+npm install
+```
+
 # Remove Bootstrap 
 - Remove from the dependencies object.
     - "@popperjs/core": "^2.9.2",
@@ -11,9 +15,6 @@ Use npm to download the needed node_modules.
 - Remove from ./styles/styles.scss
     - @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
-```bash 
-npm install
-```
 # Development
 To work on development mode:
 
